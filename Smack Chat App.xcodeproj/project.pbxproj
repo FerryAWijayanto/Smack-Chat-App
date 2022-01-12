@@ -12,6 +12,7 @@
 		2F08C420278D13580006C5D7 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08C41F278D13580006C5D7 /* ChannelVC.swift */; };
 		2F08C423278D2AB10006C5D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08C422278D2AB10006C5D7 /* Constants.swift */; };
 		2F08C425278E6C680006C5D7 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08C424278E6C680006C5D7 /* SignInVC.swift */; };
+		2F08C427278E72E50006C5D7 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08C426278E72E50006C5D7 /* CreateAccountVC.swift */; };
 		2FA05DB7278C32E700CEB74C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA05DB5278C32E600CEB74C /* SWRevealViewController.m */; };
 		2FC82BBC278C24F60031F025 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC82BBB278C24F60031F025 /* AppDelegate.swift */; };
 		2FC82BBE278C24F60031F025 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC82BBD278C24F60031F025 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		2F08C41F278D13580006C5D7 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		2F08C422278D2AB10006C5D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F08C424278E6C680006C5D7 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		2F08C426278E72E50006C5D7 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		2FA05DB4278C32E500CEB74C /* Smack Chat App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack Chat App-Bridging-Header.h"; sourceTree = "<group>"; };
 		2FA05DB5278C32E600CEB74C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		2FA05DB6278C32E700CEB74C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				2F08C424278E6C680006C5D7 /* SignInVC.swift */,
 				2F08C41D278D134F0006C5D7 /* ChatVC.swift */,
 				2F08C41F278D13580006C5D7 /* ChannelVC.swift */,
+				2F08C426278E72E50006C5D7 /* CreateAccountVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				2FC82BBC278C24F60031F025 /* AppDelegate.swift in Sources */,
 				2FC82BBE278C24F60031F025 /* SceneDelegate.swift in Sources */,
+				2F08C427278E72E50006C5D7 /* CreateAccountVC.swift in Sources */,
 				2FA05DB7278C32E700CEB74C /* SWRevealViewController.m in Sources */,
 				2F08C420278D13580006C5D7 /* ChannelVC.swift in Sources */,
 				2F08C425278E6C680006C5D7 /* SignInVC.swift in Sources */,
