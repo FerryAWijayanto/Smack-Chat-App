@@ -14,6 +14,9 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var userProfile: UIImageView!
     
+    var avatarName = "profileDefault"
+    var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func createAccountBtn(_ sender: UIButton) {
+        guard let name = usernameTF.text, name != "" else { return }
         guard let email = emailTF.text, email != "" else { return }
         guard let password = passwordTF.text, password != "" else { return }
         
@@ -28,7 +32,11 @@ class CreateAccountVC: UIViewController {
             guard let self = self else { return }
             
             if success {
-                print("register user!")
+                AuthServices.shared.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor) { success in
+                    if success {
+                        self.performSegue(withIdentifier: UNWIND_TO_CHANNELS, sender: nil)
+                    }
+                }
             }
         }
         

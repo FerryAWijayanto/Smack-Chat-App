@@ -93,4 +93,46 @@ class AuthServices {
             }
         }
     }
+    
+    func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping Completion) {
+        let lowerCaseEmail = email.lowercased()
+        
+        let body: [String: String] = [
+            "name:": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        ]
+        
+        let header: HTTPHeaders = [
+            "Authorization": "Bearer \(AuthServices.shared.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        AF.request(URL_CREATE_USER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseData { response in
+            
+            if response.error == nil {
+                guard let data = response.data else { return }
+                
+                do {
+                    let json = try JSON(data: data)
+                    let id = json["_id"].stringValue
+                    let avatarColor = json["avatarColor"].stringValue
+                    let avatarName = json["avatarName"].stringValue
+                    let email = json["email"].stringValue
+                    let name = json["name"].stringValue
+                    
+                    UserDataService.shared.setUserData(id: id, name: name, email: email, avatarName: avatarName, avatarColor: avatarColor)
+                    
+                } catch let error {
+                    print(error)
+                }
+                
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.error?.localizedDescription ?? "")
+            }
+        }
+    }
 }
