@@ -241,6 +241,9 @@
                                         <real key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtn:" destination="2sk-d6-YBH" eventType="touchUpInside" id="6ks-Kb-k02"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="88c-hb-2Vt"/>
@@ -260,6 +263,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="T1g-yb-nwF"/>
                     <connections>
+                        <outlet property="emailTextField" destination="Wbb-NM-N4i" id="Y8j-kL-1ag"/>
+                        <outlet property="passwordTextField" destination="9Pz-LM-imV" id="pmZ-al-TgJ"/>
                         <segue destination="Uz3-DG-OIH" kind="show" identifier="toCreateAccount" id="pWx-2P-hsK"/>
                     </connections>
                 </viewController>

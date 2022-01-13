@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 typealias Completion = (_ success: Bool) -> Void
 
@@ -46,18 +47,45 @@ class AuthServices {
         
         let lowerCaseEmail = email.lowercased()
         
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json; charset=utf-8"
+        let body: [String: String] = [
+            "email": lowerCaseEmail,
+            "password": password
         ]
+        
+        AF.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { response in
+            
+            if response.error == nil {
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.error?.localizedDescription ?? "")
+            }
+        }
+    }
+    
+    func loginUser(email: String, password: String, completion: @escaping Completion) {
+        let lowerCaseEmail = email.lowercased()
         
         let body: [String: String] = [
             "email": lowerCaseEmail,
             "password": password
         ]
         
-        AF.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { response in
+        AF.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseData { response in
             
             if response.error == nil {
+                guard let data = response.data else { return }
+                
+                do {
+                    let json = try JSON(data: data)
+                    self.userEmail = json["user"].stringValue
+                    self.authToken = json["token"].stringValue
+                    
+                } catch let error {
+                    print(error)
+                }
+                
+                self.isLoggedIn = true
                 completion(true)
             } else {
                 completion(false)

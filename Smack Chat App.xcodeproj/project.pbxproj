@@ -93,6 +93,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		2F99DE28278FDE4D00FFDB20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2FA05DB3278C32D500CEB74C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +131,7 @@
 		2FC82BBA278C24F60031F025 /* Smack Chat App */ = {
 			isa = PBXGroup;
 			children = (
+				2F99DE28278FDE4D00FFDB20 /* Models */,
 				2F99DE23278FC5F000FFDB20 /* Services */,
 				2F08C421278D2AA50006C5D7 /* Utilities */,
 				2F08C41C278D133E0006C5D7 /* Views */,
