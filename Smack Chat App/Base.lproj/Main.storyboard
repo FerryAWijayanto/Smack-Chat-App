@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,7 +49,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l37-Nu-xUd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l37-Nu-xUd" customClass="IconImage" customModule="Smack_Chat_App" customModuleProvider="target">
                                 <rect key="frame" x="283" y="100" width="20" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,6 +57,11 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <imageReference key="image" image="plus.circle.fill" catalog="system" renderingMode="template"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbq-ff-eyM">
                                 <rect key="frame" x="127" y="593" width="44" height="33"/>
@@ -375,7 +381,7 @@
                                     <action selector="createAccountBtn:" destination="Uz3-DG-OIH" eventType="touchUpInside" id="ozP-z6-o2X"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elG-dC-7Ip">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elG-dC-7Ip" customClass="IconImage" customModule="Smack_Chat_App" customModuleProvider="target">
                                 <rect key="frame" x="327" y="52" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="CnJ-Mt-cvf"/>
@@ -385,6 +391,11 @@
                                 <state key="normal">
                                     <imageReference key="image" image="xmark.circle.fill" catalog="system" renderingMode="template"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="dismissBtn:" destination="2sk-d6-YBH" eventType="touchUpInside" id="2RI-UU-pmV"/>
                                     <action selector="dismissBtn:" destination="Uz3-DG-OIH" eventType="touchUpInside" id="fHQ-mn-qG9"/>
@@ -455,12 +466,112 @@
                         <outlet property="userProfile" destination="SmP-YR-zlu" id="hfW-Jk-IAw"/>
                         <outlet property="usernameTF" destination="YfD-is-pRi" id="s4J-cd-U2w"/>
                         <segue destination="4Sh-pl-PR7" kind="unwind" identifier="unwindToChannels" unwindAction="prepareUnwindSegueWithSegue:" id="Shy-KD-86p"/>
+                        <segue destination="PRb-cL-e9R" kind="show" identifier="toAvatarPicker" id="IId-ba-tnT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7E-ds-wnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="4Sh-pl-PR7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2565.5999999999999" y="-107.49625187406298"/>
+        </scene>
+        <!--Avatar PickerVC-->
+        <scene sceneID="b0m-nZ-veV">
+            <objects>
+                <viewController id="PRb-cL-e9R" customClass="AvatarPickerVC" customModule="Smack_Chat_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dN9-W1-t30">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MG9-Iq-0TQ" customClass="IconImage" customModule="Smack_Chat_App" customModuleProvider="target">
+                                <rect key="frame" x="16" y="52" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="NHO-KO-zqQ"/>
+                                    <constraint firstAttribute="width" constant="32" id="OMj-TB-Gff"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" red="0.42922802910000002" green="0.1186024817" blue="0.4085196592" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="chevron.backward.circle.fill" catalog="system" renderingMode="template"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="PRb-cL-e9R" eventType="touchUpInside" id="vmq-3x-Wwa"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lK6-Jx-GUF">
+                                <rect key="frame" x="137.5" y="52" width="100" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="LiO-k6-cx7"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Dark"/>
+                                    <segment title="Light"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedChange:" destination="PRb-cL-e9R" eventType="valueChanged" id="1ca-tv-iM0"/>
+                                </connections>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dpe-VL-wKv">
+                                <rect key="frame" x="0.0" y="104" width="375" height="543"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PQq-it-KV4">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="avatarCell" id="9CE-5O-eee" customClass="AvatarCell" customModule="Smack_Chat_App" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xRg-6D-2Bf">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ffy-t4-qiZ">
+                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Ffy-t4-qiZ" secondAttribute="bottom" constant="8" id="Amk-4E-Mfe"/>
+                                                <constraint firstItem="Ffy-t4-qiZ" firstAttribute="top" secondItem="xRg-6D-2Bf" secondAttribute="top" constant="8" id="Tzr-M4-Bmc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ffy-t4-qiZ" secondAttribute="trailing" constant="8" id="VgP-9W-3fb"/>
+                                                <constraint firstItem="Ffy-t4-qiZ" firstAttribute="leading" secondItem="xRg-6D-2Bf" secondAttribute="leading" constant="8" id="rXc-Zk-1z1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImage" destination="Ffy-t4-qiZ" id="fGl-eC-fwi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="smq-nH-KSW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lK6-Jx-GUF" firstAttribute="top" secondItem="smq-nH-KSW" secondAttribute="top" constant="52" id="1I0-Gk-lbx"/>
+                            <constraint firstItem="lK6-Jx-GUF" firstAttribute="centerX" secondItem="dN9-W1-t30" secondAttribute="centerX" id="QMc-sx-33U"/>
+                            <constraint firstItem="smq-nH-KSW" firstAttribute="bottom" secondItem="Dpe-VL-wKv" secondAttribute="bottom" id="WRN-a0-onh"/>
+                            <constraint firstItem="MG9-Iq-0TQ" firstAttribute="leading" secondItem="smq-nH-KSW" secondAttribute="leading" constant="16" id="jR1-bf-nPh"/>
+                            <constraint firstItem="Dpe-VL-wKv" firstAttribute="top" secondItem="MG9-Iq-0TQ" secondAttribute="bottom" constant="20" id="rm6-yf-B69"/>
+                            <constraint firstItem="smq-nH-KSW" firstAttribute="trailing" secondItem="Dpe-VL-wKv" secondAttribute="trailing" id="s8u-It-gyb"/>
+                            <constraint firstItem="Dpe-VL-wKv" firstAttribute="leading" secondItem="smq-nH-KSW" secondAttribute="leading" id="u0n-Db-16J"/>
+                            <constraint firstItem="MG9-Iq-0TQ" firstAttribute="top" secondItem="smq-nH-KSW" secondAttribute="top" constant="52" id="wgM-Jr-K7k"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="c4Q-2l-J7x"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Dpe-VL-wKv" id="rrZ-kC-Rsw"/>
+                        <outlet property="segementedControl" destination="lK6-Jx-GUF" id="RAy-ac-Plx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTE-EY-Ihr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3294" y="-107"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="pSc-Rb-Ogq">
@@ -522,11 +633,18 @@
         <designable name="1lN-ue-w65">
             <size key="intrinsicContentSize" width="111" height="30"/>
         </designable>
+        <designable name="MG9-Iq-0TQ">
+            <size key="intrinsicContentSize" width="70" height="68"/>
+        </designable>
         <designable name="OUG-rp-ryc">
             <size key="intrinsicContentSize" width="49" height="30"/>
         </designable>
+        <designable name="elG-dC-7Ip">
+            <size key="intrinsicContentSize" width="70" height="68"/>
+        </designable>
     </designables>
     <resources>
+        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="smack logo" width="128" height="128"/>

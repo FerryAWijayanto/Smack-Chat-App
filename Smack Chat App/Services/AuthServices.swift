@@ -116,13 +116,7 @@ class AuthServices {
                 
                 do {
                     let json = try JSON(data: data)
-                    let id = json["_id"].stringValue
-                    let avatarColor = json["avatarColor"].stringValue
-                    let avatarName = json["avatarName"].stringValue
-                    let email = json["email"].stringValue
-                    let name = json["name"].stringValue
-                    
-                    UserDataService.shared.setUserData(id: id, name: name, email: email, avatarName: avatarName, avatarColor: avatarColor)
+                    UserDataService.shared.setUserData(dict: json.dictionaryObject ?? [:])
                     
                 } catch let error {
                     print(error)

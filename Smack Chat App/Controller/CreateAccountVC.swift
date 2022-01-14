@@ -23,6 +23,14 @@ class CreateAccountVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDataService.shared.avatarName != "" {
+            userProfile.image = UIImage(named: UserDataService.shared.avatarName)
+            avatarName = UserDataService.shared.avatarName
+        }
+    }
+    
     @IBAction func createAccountBtn(_ sender: UIButton) {
         guard let name = usernameTF.text, name != "" else { return }
         guard let email = emailTF.text, email != "" else { return }
@@ -43,7 +51,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func chooseAvatarBtn(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
     }
     
     @IBAction func generateBackgroundBtn(_ sender: UIButton) {

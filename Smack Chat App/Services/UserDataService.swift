@@ -17,16 +17,17 @@ class UserDataService {
     public private(set) var avatarName = ""
     public private(set) var avatarColor = ""
     
-    func setUserData(id: String, name: String, email: String, avatarName: String, avatarColor: String) {
-        self.id = id
-        self.name = name
-        self.email = email
-        self.avatarName = avatarName
-        self.avatarColor = avatarColor
+    func setUserData(dict: [String: Any]) {
+        self.id = dict["_id"] as? String ?? ""
+        self.name = dict["name"] as? String ?? ""
+        self.email = dict["email"] as? String ?? ""
+        self.avatarName = dict["avatarName"] as? String ?? ""
+        self.avatarColor = dict["avatarColor"] as? String ?? ""
     }
     
     func setAvatarName(name: String) {
         self.avatarName = name
+        
     }
     
 }
